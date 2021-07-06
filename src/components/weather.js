@@ -5,7 +5,11 @@ class Weather extends React.Component {
     constructor(props){
     super(props);
     this.state = {
-        chooseCity: ''
+        chooseCity: '',
+        weatherInfo:[],
+        date:'',
+        description:''
+
     }
     }
     selectedWeather = async (event) => {
@@ -14,13 +18,17 @@ class Weather extends React.Component {
         chooseCity:event.target.chosenCity.value
     })
     
-    let  weatherUrl = `http://localhost:3001/weather?cityName=${this.state.chooseCity}`
+    let  weatherUrl = `https://marams-city-explorer.herokuapp.com//weather?cityName=${this.state.chooseCity}`
     let forecast = await axios.get(weatherUrl);
-    console.log(forecast);
+    console.log(forecast.data);
     await this.setState({
-        weatherInfo: forecast.data
+        weatherInfo: forecast.data,
+        date:forecast.data.date,
+        description:forecast.data.description 
 
     })
+
+
    }
 
     
@@ -36,8 +44,17 @@ class Weather extends React.Component {
                 <form onSubmit={this.selectedWeather} >
                     <input type="text" placeholder="city" name="chosenCity"  />
                     <input type="submit" value="Explore"  />
-                    <p>City Forecast: {this.state.weatherInfo}</p>
-
+                    <>City Forecast: {this.state.weatherInfo.map(element => {
+                        return(
+                             <>
+                                <p> {element.date}</p>
+                                <p> {element.description}</p>
+        
+                            </>
+                        )
+                    } )}
+                    </>
+                     
                 </form>
             </>
         )

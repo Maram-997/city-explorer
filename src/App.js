@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// import Weather from './components/weather';
+import Weather from './components/weather';
 
 class App extends React.Component{
  
@@ -53,7 +53,7 @@ await this.setState({
      City Lon: {this.state.cityInfo.lon} <br/>
       </p>
       {this.state.visibility && < img alt="map" src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${this.state.cityInfo.lat},${this.state.cityInfo.lon}&zoom=10`} /> }
-      
+      <Weather  />
       </>
     )
   }
