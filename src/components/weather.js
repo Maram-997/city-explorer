@@ -18,7 +18,7 @@ class Weather extends React.Component {
         chooseCity:event.target.chosenCity.value
     })
     
-    let  weatherUrl = `https://marams-city-explorer.herokuapp.com//weather?cityName=${this.state.chooseCity}`
+    let  weatherUrl = `https://marams-city-explorer.herokuapp.com/weather?cityName=${this.state.chooseCity}`
     let forecast = await axios.get(weatherUrl);
     console.log(forecast.data);
     await this.setState({
