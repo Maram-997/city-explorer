@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Weather from './components/weather';
+// import Weather from './components/weather';
 
 class App extends React.Component{
  
