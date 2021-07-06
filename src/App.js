@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Weather from './components/weather';
 
 class App extends React.Component{
  
@@ -8,7 +9,7 @@ class App extends React.Component{
    this.state={
      cityInfo:{},
      info:'',
-     visibility: false
+     visibility: false,
 
   }
  }
@@ -25,11 +26,9 @@ class App extends React.Component{
  
 
  let url = `https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${this.state.info}&format=json`;
- 
  // axios.get will send a request to the API and get the data, this data will be stored in resData
  // axios needs time as this.setState so we will use the promises (async/ await)
  let resData = await axios.get(url);
- 
  
  // to update the cityname and it's information from the recived data (API's Data)
 await this.setState({
