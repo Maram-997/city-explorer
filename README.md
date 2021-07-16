@@ -18,4 +18,4 @@ node.js - asynchronous event-driven JavaScript runtime
 can't call it exactlly 
 
 ## Credit and Collaborations
-node.js, Sara, and Majd
+ Sara, and Majd
